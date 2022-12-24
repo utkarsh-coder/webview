@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { App } from '@capacitor/app';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
+// declare let cordova: any;
+var inAppBrowserRef;
+
 
 @Component({
   selector: 'app-home',
@@ -7,6 +13,19 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private inBrowser: InAppBrowser) {
+    inAppBrowserRef = this.inBrowser.create('http://uat.gizmosmart.io/utkarsh/customerappuatfinal/public/home', '_self', 'location=no,zoom=no');
+    inAppBrowserRef.on('exit').subscribe(()=>{
+      navigator['app'].exitApp();
+    });
+   }
+
+  public openWebView(): void {
+    console.log('runned openwebview');
+  }
+
+  public showHelp():void{
+    
+  }
 
 }
