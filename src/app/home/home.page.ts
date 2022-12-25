@@ -14,7 +14,7 @@ var inAppBrowserRef;
 export class HomePage {
 
   constructor(private inBrowser: InAppBrowser) {
-    inAppBrowserRef = this.inBrowser.create('http://uat.gizmosmart.io/utkarsh/customerappuatfinal/public/home', '_self', 'location=no,zoom=no');
+    inAppBrowserRef = this.inBrowser.create('http://uat.gizmosmart.io/utkarsh/igzymobile/public/home', '_self', 'location=no,zoom=no');
     inAppBrowserRef.on('exit').subscribe(()=>{
       navigator['app'].exitApp();
     });
